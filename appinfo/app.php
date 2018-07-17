@@ -19,5 +19,5 @@
  *
  */
 
-$application = new \OCA\FilesAccessControl\AppInfo\Application();
+$application = new \OCA\FilesEditControl\AppInfo\Application();
 $application->registerHooksAndListeners();
