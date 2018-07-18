@@ -1,6 +1,8 @@
 # This is an app bases on Nextcloud Files Access Control App
 The different point is that it only denies modifications instead of blocking all access. So I call it Files Edit Control App.
+
 Below is description of File Access Control:
+
 Nextcloud's File Access Control app enables administrators to protect data from unauthorized access or modifications.
 
 ## How it works
