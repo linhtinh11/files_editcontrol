@@ -12,7 +12,7 @@ An example would be to deny access to Excell/XLSX files owned by the "Human Reso
 	
 Learn more about File Access Control on [https://nextcloud.com/workflow](https://nextcloud.com/workflow)
 
-## Instalation
+## Installation
 In the server, enter to folder /var/www/nextcloud/apps/ and clone the project:
 
 ```
