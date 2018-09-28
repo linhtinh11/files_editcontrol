@@ -12,6 +12,16 @@ An example would be to deny access to Excell/XLSX files owned by the "Human Reso
 	
 Learn more about File Access Control on [https://nextcloud.com/workflow](https://nextcloud.com/workflow)
 
+## Instalation
+In the server, enter to folder /var/www/nextcloud/apps/ and clone the project:
+
+```
+cd /var/www/nextcloud/apps/
+git clone https://github.com/linhtinh11/files_editcontrol.git
+```
+
+Then, as admin go to the Nextcloud configuration -> applications, find the app in the disabled tab and enable it.
+
 ## QA metrics on master branch:
 
 [![Build Status](https://travis-ci.org/nextcloud/files_accesscontrol.svg?branch=master)](https://travis-ci.org/nextcloud/files_accesscontrol/branches)
