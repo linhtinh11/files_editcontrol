@@ -21,9 +21,9 @@
  *
  */
 
-namespace OCA\FilesAccessControl\Settings;
+namespace OCA\FilesEditControl\Settings;
 
-use OCA\FilesAccessControl\AppInfo\Application;
+use OCA\FilesEditControl\AppInfo\Application;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IL10N;
 use OCP\Settings\ISettings;
@@ -56,10 +56,10 @@ class Admin implements ISettings {
 		Util::addScript($appName, 'admin');
 		$parameters = [
 			'appid' => $appName,
-			'docs' => 'admin-files-access-control',
-			'heading' => $this->l10n->t('File access control'),
-			'settings-hint' => $this->l10n->t('Restrict access to files based on factors such as filetype, user group memberships, time and more.'),
-			'description' => $this->l10n->t('Each rule group consists of one or more rules. A request matches a group if all rules evaluate to true. If a request matches at least one of the defined groups, the request is blocked and the file content can not be read or written.'),
+			'docs' => 'admin-files-edit-control',
+			'heading' => $this->l10n->t('File edit control'),
+			'settings-hint' => $this->l10n->t('Restrict edit to files based on factors such as filetype, user group memberships, time and more.'),
+			'description' => $this->l10n->t('Each rule group consists of one or more rules. A request matches a group if all rules evaluate to true. If a request matches at least one of the defined groups, the request is blocked and the file content can not be written.'),
 		];
 
 		return new TemplateResponse('workflowengine', 'admin', $parameters, 'blank');
@@ -69,7 +69,7 @@ class Admin implements ISettings {
 	 * @return string the section ID, e.g. 'sharing'
 	 */
 	public function getSection() {
-		return 'files_accesscontrol';
+		return 'files_editcontrol';
 	}
 
 	/**

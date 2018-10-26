@@ -19,7 +19,7 @@
  *
  */
 
-namespace OCA\FilesAccessControl;
+namespace OCA\FilesEditControl;
 
 use OC\Files\Cache\Wrapper\CacheWrapper as Wrapper;
 use OCP\Constants;
@@ -46,7 +46,7 @@ class CacheWrapper extends Wrapper  {
 		$this->operation = $operation;
 
 		$this->mask = Constants::PERMISSION_ALL;
-		$this->mask &= ~Constants::PERMISSION_READ;
+		#$this->mask &= ~Constants::PERMISSION_READ; #no need to remove read permission
 		$this->mask &= ~Constants::PERMISSION_CREATE;
 		$this->mask &= ~Constants::PERMISSION_UPDATE;
 		$this->mask &= ~Constants::PERMISSION_DELETE;

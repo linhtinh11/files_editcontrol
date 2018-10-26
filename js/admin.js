@@ -19,15 +19,15 @@
  */
 
 (function() {
-	OCA.FilesAccessControl = OCA.FilesAccessControl || {};
+	OCA.FilesEditControl = OCA.FilesEditControl || {};
 
 	/**
-	 * @class OCA.FilesAccessControl.Operation
+	 * @class OCA.FilesEditControl.Operation
 	 */
-	OCA.FilesAccessControl.Operation =
+	OCA.FilesEditControl.Operation =
 		OCA.WorkflowEngine.Operation.extend({
 			defaults: {
-				'class': 'OCA\\FilesAccessControl\\Operation',
+				'class': 'OCA\\FilesEditControl\\Operation',
 				'name': '',
 				'checks': [],
 				'operation': 'deny'
@@ -35,23 +35,23 @@
 		});
 
 	/**
-	 * @class OCA.FilesAccessControl.OperationsCollection
+	 * @class OCA.FilesEditControl.OperationsCollection
 	 *
 	 * collection for all configurated operations
 	 */
-	OCA.FilesAccessControl.OperationsCollection =
+	OCA.FilesEditControl.OperationsCollection =
 		OCA.WorkflowEngine.OperationsCollection.extend({
-			model: OCA.FilesAccessControl.Operation
+			model: OCA.FilesEditControl.Operation
 		});
 
 	/**
-	 * @class OCA.FilesAccessControl.OperationView
+	 * @class OCA.FilesEditControl.OperationView
 	 *
 	 * this creates the view for a single operation
 	 */
-	OCA.FilesAccessControl.OperationView =
+	OCA.FilesEditControl.OperationView =
 		OCA.WorkflowEngine.OperationView.extend({
-			model: OCA.FilesAccessControl.Operation,
+			model: OCA.FilesEditControl.Operation,
 			render: function() {
 				var $el = OCA.WorkflowEngine.OperationView.prototype.render.apply(this);
 				$el.find('input.operation-operation').addClass('hidden');
@@ -59,19 +59,19 @@
 		});
 
 	/**
-	 * @class OCA.FilesAccessControl.OperationsView
+	 * @class OCA.FilesEditControl.OperationsView
 	 *
 	 * this creates the view for configured operations
 	 */
-	OCA.FilesAccessControl.OperationsView =
+	OCA.FilesEditControl.OperationsView =
 		OCA.WorkflowEngine.OperationsView.extend({
 			initialize: function() {
 				OCA.WorkflowEngine.OperationsView.prototype.initialize.apply(this, [
-					'OCA\\FilesAccessControl\\Operation'
+					'OCA\\FilesEditControl\\Operation'
 				]);
 			},
 			renderOperation: function(operation) {
-				var subView = new OCA.FilesAccessControl.OperationView({
+				var subView = new OCA.FilesEditControl.OperationView({
 						model: operation
 					});
 
@@ -86,9 +86,9 @@
 $(document).ready(function() {
 	OC.SystemTags.collection.fetch({
 		success: function() {
-			new OCA.FilesAccessControl.OperationsView({
-				el: '#files_accesscontrol .rules',
-				collection: new OCA.FilesAccessControl.OperationsCollection()
+			new OCA.FilesEditControl.OperationsView({
+				el: '#files_editcontrol .rules',
+				collection: new OCA.FilesEditControl.OperationsCollection()
 			});
 		}
 	});
