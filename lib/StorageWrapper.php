@@ -19,7 +19,7 @@
  *
  */
 
-namespace OCA\FilesAccessControl;
+namespace OCA\FilesEditControl;
 
 use OC\Files\Storage\Wrapper\Wrapper;
 use OCP\Constants;
@@ -167,14 +167,14 @@ class StorageWrapper extends Wrapper {
 	 * @param string $path
 	 * @return bool
 	 */
-	public function isReadable($path) {
-		try {
-			$this->checkFileAccess($path);
-		} catch (ForbiddenException $e) {
-			return false;
-		}
-		return $this->storage->isReadable($path);
-	}
+	// public function isReadable($path) {
+	// 	try {
+	// 		$this->checkFileAccess($path);
+	// 	} catch (ForbiddenException $e) {
+	// 		return false;
+	// 	}
+	// 	return $this->storage->isReadable($path);
+	// }
 
 	/**
 	 * check if a file can be written to
@@ -223,14 +223,14 @@ class StorageWrapper extends Wrapper {
 //	 * @param string $path
 //	 * @return int
 //	 */
-	public function getPermissions($path) {
-		try {
-			$this->checkFileAccess($path);
-		} catch (ForbiddenException $e) {
-			return $this->mask;
-		}
-		return $this->storage->getPermissions($path);
-	}
+//	public function getPermissions($path) {
+//		try {
+//			$this->checkFileAccess($path);
+//		} catch (ForbiddenException $e) {
+//			return $this->mask;
+//		}
+//		return $this->storage->getPermissions($path);
+//	}
 //
 //	/**
 //	 * see http://php.net/manual/en/function.file_exists.php
@@ -258,10 +258,10 @@ class StorageWrapper extends Wrapper {
 	 * @param string $path
 	 * @return string
 	 */
-	public function file_get_contents($path) {
-		$this->checkFileAccess($path);
-		return $this->storage->file_get_contents($path);
-	}
+//	public function file_get_contents($path) {
+//		$this->checkFileAccess($path);
+//		return $this->storage->file_get_contents($path);
+//	}
 
 	/**
 	 * see http://php.net/manual/en/function.file_put_contents.php
@@ -319,10 +319,10 @@ class StorageWrapper extends Wrapper {
 	 * @param string $mode
 	 * @return resource
 	 */
-	public function fopen($path, $mode) {
-		$this->checkFileAccess($path);
-		return $this->storage->fopen($path, $mode);
-	}
+//	public function fopen($path, $mode) {
+//		$this->checkFileAccess($path);
+//		return $this->storage->fopen($path, $mode);
+//	}
 
 //	/**
 //	 * get the mimetype for a file or folder
@@ -537,10 +537,10 @@ class StorageWrapper extends Wrapper {
 	 * @param string $path
 	 * @return array
 	 */
-	public function getDirectDownload($path) {
-		$this->checkFileAccess($path);
-		return $this->storage->getDirectDownload($path);
-	}
+//	public function getDirectDownload($path) {
+//		$this->checkFileAccess($path);
+//		return $this->storage->getDirectDownload($path);
+//	}
 
 //	/**
 //	 * Get availability of the storage

@@ -19,7 +19,7 @@
  *
  */
 
-namespace OCA\FilesAccessControl\Settings;
+namespace OCA\FilesEditControl\Settings;
 
 use OCP\IL10N;
 use OCP\IURLGenerator;
@@ -43,7 +43,7 @@ class Section implements IIconSection {
 	 * @returns string
 	 */
 	public function getID() {
-		return 'files_accesscontrol';
+		return 'files_editcontrol';
 	}
 
 	/**
@@ -53,7 +53,7 @@ class Section implements IIconSection {
 	 * @return string
 	 */
 	public function getName() {
-		return $this->l->t('File access control');
+		return $this->l->t('File edit control');
 	}
 
 	/**
@@ -71,6 +71,6 @@ class Section implements IIconSection {
 	 * {@inheritdoc}
 	 */
 	public function getIcon() {
-		return $this->url->imagePath('files_accesscontrol', 'app-dark.svg');
+		return $this->url->imagePath('files_editcontrol', 'app-dark.svg');
 	}
 }

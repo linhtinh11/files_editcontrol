@@ -19,17 +19,17 @@
  *
  */
 
-namespace OCA\FilesAccessControl\AppInfo;
+namespace OCA\FilesEditControl\AppInfo;
 
 use OC\Files\Filesystem;
-use OCA\FilesAccessControl\StorageWrapper;
+use OCA\FilesEditControl\StorageWrapper;
 use OCP\Files\Storage\IStorage;
 use OCP\Util;
 
 class Application extends \OCP\AppFramework\App {
 
 	public function __construct() {
-		parent::__construct('files_accesscontrol');
+		parent::__construct('files_editcontrol');
 	}
 
 	/**
@@ -44,7 +44,7 @@ class Application extends \OCP\AppFramework\App {
 	 */
 	public function addStorageWrapper() {
 		// Needs to be added as the first layer
-		Filesystem::addStorageWrapper('files_accesscontrol', [$this, 'addStorageWrapperCallback'], -10);
+		Filesystem::addStorageWrapper('files_editcontrol', [$this, 'addStorageWrapperCallback'], -10);
 	}
 
 	/**
@@ -55,8 +55,8 @@ class Application extends \OCP\AppFramework\App {
 	 */
 	public function addStorageWrapperCallback($mountPoint, IStorage $storage) {
 		if (!\OC::$CLI && !$storage->instanceOfStorage('OCA\Files_Sharing\SharedStorage')) {
-			/** @var \OCA\FilesAccessControl\Operation $operation */
-			$operation = $this->getContainer()->query('OCA\FilesAccessControl\Operation');
+			/** @var \OCA\FilesEditControl\Operation $operation */
+			$operation = $this->getContainer()->query('OCA\FilesEditControl\Operation');
 			return new StorageWrapper([
 				'storage' => $storage,
 				'mountPoint' => $mountPoint,

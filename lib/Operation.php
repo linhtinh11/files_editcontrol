@@ -19,7 +19,7 @@
  *
  */
 
-namespace OCA\FilesAccessControl;
+namespace OCA\FilesEditControl;
 
 
 use OCP\Files\ForbiddenException;
@@ -64,7 +64,7 @@ class Operation implements IOperation{
 
 		$filePath = $this->translatePath($storage, $path);
 		$this->manager->setFileInfo($storage, $filePath);
-		$match = $this->manager->getMatchingOperations('OCA\FilesAccessControl\Operation');
+		$match = $this->manager->getMatchingOperations('OCA\FilesEditControl\Operation');
 
 		$this->nestingLevel--;
 
