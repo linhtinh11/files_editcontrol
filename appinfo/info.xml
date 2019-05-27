@@ -9,7 +9,7 @@
 		Its purpose is blocking the modification on some conditions but not all access
 	</description>
 
-	<version>1.5.0</version>
+	<version>1.6.0</version>
 	<licence>agpl</licence>
 	<author>Morris Jobke</author>
 	<namespace>FilesEditControl</namespace>
@@ -19,7 +19,7 @@
 	</types>
 
 	<documentation>
-		<admin>https://docs.nextcloud.com/server/15/go.php?to=admin-files-access-control</admin>
+		<admin>https://docs.nextcloud.com/server/16/go.php?to=admin-files-access-control</admin>
 	</documentation>
 
 
@@ -30,7 +30,7 @@
 	<screenshot>https://raw.githubusercontent.com/nextcloud/files_accesscontrol/master/screenshots/1.png</screenshot>
 	<screenshot>https://raw.githubusercontent.com/nextcloud/files_accesscontrol/master/screenshots/2.png</screenshot>
 	<dependencies>
-		<nextcloud min-version="15" max-version="15" />
+		<nextcloud min-version="16" max-version="16" />
 	</dependencies>
 
 	<settings>
