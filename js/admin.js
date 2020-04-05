@@ -20,7 +20,7 @@
 
 (function() {
 	OCA.WorkflowEngine.registerOperator({
-		id: 'OCA\\FilesAccessControl\\Operation',
+		id: 'OCA\\FilesEditControl\\Operation',
 		color: '#ca2b2b',
 		operation: 'deny',
 	})

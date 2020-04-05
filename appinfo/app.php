@@ -19,5 +19,5 @@
  *
  */
 
-$application = \OC::$server->query(\OCA\FilesAccessControl\AppInfo\Application::class);
+$application = \OC::$server->query(\OCA\FilesEditControl\AppInfo\Application::class);
 $application->registerHooksAndListeners();
