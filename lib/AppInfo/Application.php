@@ -23,8 +23,12 @@ namespace OCA\FilesEditControl\AppInfo;
 
 use OC\Files\Filesystem;
 use OCA\FilesEditControl\StorageWrapper;
+use OCA\FilesEditControl\Operation;
+use OCA\WorkflowEngine\Manager;
 use OCP\Files\Storage\IStorage;
 use OCP\Util;
+use OCP\WorkflowEngine\IManager;
+use Symfony\Component\EventDispatcher\GenericEvent;
 
 class Application extends \OCP\AppFramework\App {
 
@@ -36,7 +40,14 @@ class Application extends \OCP\AppFramework\App {
 	 * Register all hooks and listeners
 	 */
 	public function registerHooksAndListeners() {
+		$container = $this->getContainer();
 		Util::connectHook('OC_Filesystem', 'preSetup', $this, 'addStorageWrapper');
+		$container->getServer()->getEventDispatcher()->addListener(IManager::EVENT_NAME_REG_OPERATION, function (GenericEvent $event) use ($container){
+			$operation = $container->query(Operation::class);
+			$event->getSubject()->registerOperation($operation);
+			Util::addScript('files_accesscontrol', 'admin');
+		});
+
 	}
 
 	/**

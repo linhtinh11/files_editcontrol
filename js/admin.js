@@ -19,77 +19,9 @@
  */
 
 (function() {
-	OCA.FilesEditControl = OCA.FilesEditControl || {};
-
-	/**
-	 * @class OCA.FilesEditControl.Operation
-	 */
-	OCA.FilesEditControl.Operation =
-		OCA.WorkflowEngine.Operation.extend({
-			defaults: {
-				'class': 'OCA\\FilesEditControl\\Operation',
-				'name': '',
-				'checks': [],
-				'operation': 'deny'
-			}
-		});
-
-	/**
-	 * @class OCA.FilesEditControl.OperationsCollection
-	 *
-	 * collection for all configurated operations
-	 */
-	OCA.FilesEditControl.OperationsCollection =
-		OCA.WorkflowEngine.OperationsCollection.extend({
-			model: OCA.FilesEditControl.Operation
-		});
-
-	/**
-	 * @class OCA.FilesEditControl.OperationView
-	 *
-	 * this creates the view for a single operation
-	 */
-	OCA.FilesEditControl.OperationView =
-		OCA.WorkflowEngine.OperationView.extend({
-			model: OCA.FilesEditControl.Operation,
-			render: function() {
-				var $el = OCA.WorkflowEngine.OperationView.prototype.render.apply(this);
-				$el.find('input.operation-operation').addClass('hidden');
-			}
-		});
-
-	/**
-	 * @class OCA.FilesEditControl.OperationsView
-	 *
-	 * this creates the view for configured operations
-	 */
-	OCA.FilesEditControl.OperationsView =
-		OCA.WorkflowEngine.OperationsView.extend({
-			initialize: function() {
-				OCA.WorkflowEngine.OperationsView.prototype.initialize.apply(this, [
-					'OCA\\FilesEditControl\\Operation'
-				]);
-			},
-			renderOperation: function(operation) {
-				var subView = new OCA.FilesEditControl.OperationView({
-						model: operation
-					});
-
-				OCA.WorkflowEngine.OperationsView.prototype.renderOperation.apply(this, [
-					subView
-				]);
-			}
-		});
+	OCA.WorkflowEngine.registerOperator({
+		id: 'OCA\\FilesAccessControl\\Operation',
+		color: '#ca2b2b',
+		operation: 'deny',
+	})
 })();
-
-
-$(document).ready(function() {
-	OC.SystemTags.collection.fetch({
-		success: function() {
-			new OCA.FilesEditControl.OperationsView({
-				el: '#files_editcontrol .rules',
-				collection: new OCA.FilesEditControl.OperationsCollection()
-			});
-		}
-	});
-});

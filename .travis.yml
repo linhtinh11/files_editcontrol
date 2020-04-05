@@ -1,12 +1,16 @@
 language: php
 php:
-  - 7.1
   - 7.2
   - 7.3
+  - 7.4snapshot
+
+services:
+  - mysql
+  - postgresql
 
 env:
   global:
-    - CORE_BRANCH=stable16
+    - CORE_BRANCH=stable18
     - APP_NAME=files_accesscontrol
   matrix:
     - DB=sqlite
@@ -47,13 +51,13 @@ script:
 
 matrix:
   include:
-    - php: 7.1
+    - php: 7.3
       env: DB=mysql
-    - php: 7.1
+    - php: 7.3
       env: DB=pgsql
-    - php: 7.1
+    - php: 7.3
       env: DB=mysql;CODECHECK=1
-    - php: 7.1
+    - php: 7.3
       env: DB=mysql;CODECHECK=2
   allow_failures:
     - env: DB=mysql;CODECHECK=2
